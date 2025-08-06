@@ -1,16 +1,19 @@
 package com.example.dualdb.spring_boot_dual_database.entity.mongodb;
 
+import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-import javax.persistence.Id;
+@Document(collection = "users")  // your NoSQL collection name
+public class UserDocument {
 
-@Document(collection = "products")
-public class Product {
     @Id
     private String id;
+
     private String name;
-    private Double price;
-    // Getters & Setters
+
+    private String role;
+
+    // Getters and setters
 
     public String getId() {
         return id;
@@ -28,11 +31,11 @@ public class Product {
         this.name = name;
     }
 
-    public Double getPrice() {
-        return price;
+    public String getRole() {
+        return role;
     }
 
-    public void setPrice(Double price) {
-        this.price = price;
+    public void setRole(String role) {
+        this.role = role;
     }
 }

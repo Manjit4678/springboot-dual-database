@@ -1,0 +1,29 @@
+server:
+  port: 8080
+
+spring:
+  # MySQL Database Configuration
+  datasource:
+    url: ${sqlurl}
+    username: root
+    password: Manjit@4678
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL8Dialect
+        format_sql: true
+
+  # MongoDB Atlas Configuration
+  data:
+    mongodb:
+      uri: mongodb+srv://claim-app-user:Z28HDyKexGemqIzc@cluster0.uwecwrc.mongodb.net/claimsdb?retryWrites=true&w=majority&appName=Cluster0
+
+logging:
+  level:
+    com.example.dualdb: DEBUG
+    org.springframework.data.mongodb.core.MongoTemplate: DEBUG
